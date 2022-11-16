@@ -16,7 +16,7 @@ namespace VægtabsBeregnerEksamen
             Console.WriteLine();
             Console.WriteLine($"Hej {bruger.Navn}");
             Console.WriteLine($"For at opnå en ønsket vægt på {bruger.ØnskedeVægt} i løbet af {bruger.Deadline} uger,");
-            Console.WriteLine($"vil det kræve et daglig kalorie indtag på {Math.Round(dagligjusteretkal)} kcal.");
+            Console.WriteLine($"vil det kræve et daglig kalorieindtag på {Math.Round(dagligjusteretkal)} kcal.");
 
         }
     }
