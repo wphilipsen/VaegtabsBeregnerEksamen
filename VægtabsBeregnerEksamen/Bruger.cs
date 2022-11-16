@@ -22,8 +22,8 @@ namespace VægtabsBeregnerEksamen
             Bruger bruger = new Bruger();
             Console.WriteLine("Indtast brugerens navn");
             bruger.Navn = Console.ReadLine();
-            Console.WriteLine("Indtast brugerens køn: mand / kvinde");
-            bruger.Køn = Console.ReadLine().ToLower();
+            bruger.Køn = ValgafKøn();
+
             Console.WriteLine("Indtast brugerens alder");
             bruger.Alder = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Indtast brugerens højde");
@@ -32,6 +32,20 @@ namespace VægtabsBeregnerEksamen
             Vægttab(bruger);
 
             return bruger;
+        }
+
+        private static string ValgafKøn()
+        {
+            Console.WriteLine("Indtast brugerens køn: mand / kvinde");
+            string valgafkøn = Console.ReadLine().ToLower();
+            if (valgafkøn != "mand" && valgafkøn != "kvinde")
+            {
+                Console.WriteLine("indtastning skal indehold enten mand eller kvinde");
+                valgafkøn = ValgafKøn();
+            }
+
+            return valgafkøn;
+
         }
 
         private static void Vægttab(Bruger bruger)
