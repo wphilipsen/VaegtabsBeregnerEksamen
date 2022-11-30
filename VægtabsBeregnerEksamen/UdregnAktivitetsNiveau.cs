@@ -20,12 +20,12 @@ namespace VægtabsBeregnerEksamen
             Console.WriteLine();
 
             //Tryparse for at sikre at det indtastede er et tal || og mellem 1 og 3 så der ikke kan vælges noget udenfor valgmulighederne
-            if (!int.TryParse(Console.ReadLine(), out int jobaktivitet) || jobaktivitet < 1 && jobaktivitet > 3)
+            if (!int.TryParse(Console.ReadLine(), out int jobaktivitet) || jobaktivitet < 1 || jobaktivitet > 3)
             {
-                Console.WriteLine("vælg venligst en af valgmulighederne:");
+                Console.WriteLine("Vælg venligst en af valgmulighederne:");
                 Console.WriteLine();
                 //hvis ikke krav opfyldt køres metoden igen, indtil den er tilfreds med indtastning
-                JobAktivitetUdregner();
+                jobaktivitet = JobAktivitetUdregner();
             }
             return jobaktivitet;
         }
@@ -41,12 +41,12 @@ namespace VægtabsBeregnerEksamen
             Console.WriteLine();
 
             //Tryparse for at sikre at det indtastede er et tal || og mellem 1 og 3 så der ikke kan vælges noget udenfor valgmulighederne
-            if (!int.TryParse(Console.ReadLine(), out int træningsaktivitet) || træningsaktivitet < 1 && træningsaktivitet > 3)
+            if (!int.TryParse(Console.ReadLine(), out int træningsaktivitet) || træningsaktivitet < 1 || træningsaktivitet > 3)
             {
-                Console.WriteLine("vælg venligst en af valgmulighederne:");
+                Console.WriteLine("Vælg venligst en af valgmulighederne:");
                 Console.WriteLine();
                 //hvis ikke krav opfyldt køres metoden igen, indtil den er tilfreds med indtastning
-                TræningsAktivitetUdregner();
+                træningsaktivitet = TræningsAktivitetUdregner();
             }
             return træningsaktivitet;
         }

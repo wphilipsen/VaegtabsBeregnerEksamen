@@ -25,9 +25,11 @@ namespace VægtabsBeregnerEksamen
             bruger.Køn = ValgafKøn();
 
             Console.WriteLine("Indtast brugerens alder");
-            bruger.Alder = Convert.ToInt32(Console.ReadLine());
+            bruger.Alder = GetInput();
+
             Console.WriteLine("Indtast brugerens højde");
-            bruger.Højde = Convert.ToInt32(Console.ReadLine());
+            bruger.Højde = GetInput();
+            
 
             Vægttab(bruger);
 
@@ -47,15 +49,27 @@ namespace VægtabsBeregnerEksamen
             return valgafkøn;
 
         }
+        private static int GetInput()
+        {
 
+            //Tryparse for at sikre at det indtastede er et tal 
+            if (!int.TryParse(Console.ReadLine(), out int input))
+            {
+                Console.WriteLine("Indtast venligst kun tal.");
+                Console.WriteLine();
+                //hvis ikke krav opfyldt køres metoden igen, indtil den er tilfreds med indtastning
+                input = GetInput();
+            }
+            return input;
+        }
         private static void Vægttab(Bruger bruger)
         {
             Console.WriteLine("Indtast brugerens vægt");
-            bruger.Vægt = Convert.ToInt32(Console.ReadLine());
+            bruger.Vægt = GetInput();
             Console.WriteLine("Indtast brugerens ønskede vægt");
-            bruger.ØnskedeVægt = Convert.ToInt32(Console.ReadLine());
+            bruger.ØnskedeVægt = GetInput();
             Console.WriteLine("Indtast ønskede deadline for vægttab i uger");
-            bruger.Deadline = Convert.ToInt32(Console.ReadLine());
+            bruger.Deadline = GetInput();
             RealistiskVægttab(bruger);
         }
 
@@ -66,7 +80,7 @@ namespace VægtabsBeregnerEksamen
 
             if (kgPrUge > 1 || kgPrUge < -1)
             {
-                Console.WriteLine(kgPrUge);
+                
                 Console.WriteLine("Dette vægttab er urealistisk.");
                 Console.WriteLine("Sigt efter max 1kg pr uge.");
                 Vægttab(bruger);
